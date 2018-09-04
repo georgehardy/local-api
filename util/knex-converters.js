@@ -1,5 +1,4 @@
 // Converters for Knex config. Note: CommonJS.
-
 module.exports = {
   // Convert to snake_case.
   // Won't handle some cases, like strings that begin with uppercase or consist
