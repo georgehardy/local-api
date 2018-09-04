@@ -10,6 +10,7 @@
     "start": "node index",
     "test": "jest --watchAll"
   },
+  "postinstall": "knex migrate:latest && knex seed:run",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/georgehardy/local-api"
