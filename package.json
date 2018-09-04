@@ -1,7 +1,7 @@
 {
-  "name": "minotaur-server",
-  "version": "0.1.2",
-  "description": "Required for https://github.com/nikau-2018/minotaur-dating",
+  "name": "local-api",
+  "version": "0.1.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "knex": "knex",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nikau-2018/minotaur-server"
+    "url": "git+https://github.com/georgehardy/local-api"
   },
   "author": "Team Minotaur",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nikau-2018/minotaur-server/issues"
+    "url": "https://github.com/georgehardy/local-api/issues"
   },
-  "homepage": "https://github.com/nikau-2018/minotaur-server#readme",
+  "homepage": "https://github.com/georgehardy/local-api#readme",
   "devDependencies": {
     "jest": "^22.1.4",
     "nodemon": "^1.14.12",
