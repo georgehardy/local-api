@@ -1,10 +1,10 @@
 const express = require('express')
 
-const db = require('../db')
+const db = require('../../db')
 
 const router = express.Router()
 
-router.get('/getAllUsers', (req, res) => {
+router.get('/users', (req, res) => {
   db.getUsers()
     .then(users => {
       res.json({users: users})
@@ -14,7 +14,7 @@ router.get('/getAllUsers', (req, res) => {
     })
 })
 
-router.get('/getUser/:id', (req, res) => {
+router.get('/users/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getUser(id)
     .then(user => {
@@ -25,7 +25,7 @@ router.get('/getUser/:id', (req, res) => {
     })
 })
 
-router.post('/addUser', (req, res) => {
+router.post('/users', (req, res) => {
   const newUser = req.body
   db.addUser(newUser)
     .then(user => {
