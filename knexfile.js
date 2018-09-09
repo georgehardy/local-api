@@ -22,9 +22,9 @@ module.exports = {
     },
     seeds: {
       directory: __dirname + '/seeds'
-    }
-    // postProcessResponse,
-    // wrapIdentifier
+    },
+    postProcessResponse,
+    wrapIdentifier
   },
 
   // development: {
