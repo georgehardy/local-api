@@ -7,36 +7,21 @@ const router = express.Router()
 
 function sendError(res, err) {
   console.error('Registration error', err)
-  res.status(500).send('server error')
+  res.status(500).send({error: 'Woops something went wrong...'})
 }
-
-router.post('/checkEmailExists/:email', (req, res) => {
-  const email = req.params.email
-  if (!ev.validate(email)) {
-    res.send
-  }
-  db.checkEmailExists(req.params.email)
-    .then(result => {
-      if (result.length > 0) res.status(409).send('existing')
-      else res.status(200).send('ok')
-    })
-    .catch(err => {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
-    })
-})
 
 router.post('/addUser', (req, res) => {
   const user = req.body.user
   !ev.validate(user.email)
-  ? res.status(400).send('not a valid email')
+  ? res.status(200).send({error: 'You must enter a valid email address.'})
   : db.checkEmailExists(user.email)
       .then(users => {
         users.length > 0
-        ? res.status(409).send('email is taken')
+        ? res.status(200).send({error: 'This email address has already been used.'})
         : db.addUser(user)
           .then(id => {
             console.log(id)
-            res.status(200).send(id[0])
+            res.status(201).send(id[0])
           })
           .catch(err => sendError(res, err))
       })
