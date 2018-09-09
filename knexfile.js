@@ -15,14 +15,27 @@ const wrapIdentifier = (identifier, origImpl) => origImpl(camelToSnake(identifie
 
 module.exports = {
   development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './dev.sqlite3'
+    client: 'pg',
+    connection: 'postgres://localhost/george',
+    migrations: {
+      directory: __dirname + '/migrations'
     },
-    useNullAsDefault: true,
-    postProcessResponse,
-    wrapIdentifier
+    seeds: {
+      directory: __dirname + '/seeds'
+    }
+    // postProcessResponse,
+    // wrapIdentifier
   },
+
+  // development: {
+  //   client: 'sqlite3',
+  //   connection: {
+  //     filename: './dev.sqlite3'
+  //   },
+  //   useNullAsDefault: true,
+  //   postProcessResponse,
+  //   wrapIdentifier
+  // },
 
   test: {
     client: 'sqlite3',
@@ -70,10 +83,10 @@ module.exports = {
     wrapIdentifier
   },
 
-  onUpdateTrigger: table => `
-    CREATE TRIGGER ${table}_updated_at
-    BEFORE UPDATE ON ${table}
-    FOR EACH ROW
-    EXECUTE PROCEDURE on_update_timestamp();
-  `
+  // onUpdateTrigger: table => `
+  //   CREATE TRIGGER ${table}_updated_at
+  //   BEFORE UPDATE ON ${table}
+  //   FOR EACH ROW
+  //   EXECUTE PROCEDURE on_update_timestamp();
+  // `
 }
