@@ -1,6 +1,6 @@
 const express = require('express')
 
-const apiV1 = require('./routes/V1/api')
+const register = require('./routes/v1/register')
 
 const server = express()
 
@@ -16,6 +16,6 @@ server.use(function (req, res, next) {
 })
 
 // Routes
-server.use('/api/v1', apiV1)
+server.use('/api/v1/register', register)
 
 module.exports = server
