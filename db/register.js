@@ -20,7 +20,7 @@ function getUser (id, db = connection) {
 
 function addUser (user, db = connection) {
   console.log('inserting new user: ', user)
-  return db('ussers')
+  return db('users')
     .insert(user)
     .returning(['id'])
 }
