@@ -1,12 +1,10 @@
 exports.up = (knex, Promise) => {
-  return knex.schema.createTable('organisations', table => {
+  return knex.schema.createTable('orgs', table => {
     table.increments('id').primary()
     table.string('name')
-    table.string('unit')
     table.string('address')
-    table.string('suburb')
-    table.string('city')
-    table.integer('postcode')
+    table.string('lat')
+    table.string('lng')
     table.string('avatar')
     table.boolean('active')
     table.timestamps()
@@ -14,5 +12,5 @@ exports.up = (knex, Promise) => {
 }
 
 exports.down = (knex, Promise) => {
-  return knex.schema.dropTable('organisations')
+  return knex.schema.dropTable('orgs')
 }
